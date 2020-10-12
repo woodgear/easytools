@@ -1,0 +1,12 @@
+{
+    "preset": "ts-jest",
+    "rootDir": "./",
+    "transform": {
+        "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "src/.*/tests/.*\\.spec.ts",
+    "moduleFileExtensions": [
+        "ts",
+        "js"
+    ]
+}
