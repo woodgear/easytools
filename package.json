@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
+    "jszip": "^3.5.0",
+    "node-rename-path": "^4.0.1",
     "walkdir": "^0.4.1"
   }
 }
