@@ -15,7 +15,7 @@ async function fixZip(originPath: string, newPath: string) {
 }
 
 async function main() {
-    const originPath = process.argv[1];
+    const originPath = process.argv[2];
     console.log('start fix encoding of', originPath);
     const newPath = rename(originPath, (pathObj) => {
         return { name: `${pathObj.name}.fixed` }
