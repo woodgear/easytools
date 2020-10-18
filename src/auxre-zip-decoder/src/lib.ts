@@ -1,7 +1,5 @@
-import { fstat } from "fs-extra";
 import * as iconv from "iconv-lite"
 import JSZip = require("jszip");
-import { async } from "walkdir";
 
 export function ping(): string {
     return "pong"
@@ -40,6 +38,7 @@ export async function zipToZipObj(zipFile: Base64String): Promise<ZipObj> {
         files.push([path, file])
     });
     for (let [path, file] of files) {
+        console.log('fix path', path, file.dir);
         if (file.dir) {
             path = path.slice(0, -1)
             console.assert(!!!zipObjDirCache[path], "zipObjDirCache should only be access once");
@@ -50,6 +49,9 @@ export async function zipToZipObj(zipFile: Base64String): Promise<ZipObj> {
             zipObjDirCache[path] = { items: [] }
             zipObjDirCache[parentPath].items.push({ name: dirName, content: zipObjDirCache[path] });
         } else {
+            if (path.startsWith("__MACOSX")) {
+                continue;
+            }
             const paths = path.split("/");
             const fileName = paths.pop();
             const dirPath = paths.length === 0 ? "" : paths.join("/");
@@ -81,13 +83,14 @@ function fixEncode(origin: string): string {
     return transformGbk(origin);
 }
 
+// TODO when should we fixEncode?
 export function fixZipObj(zipObj: ZipObj) {
     for (const item of zipObj.items) {
         if (isZipFolderItem(item)) {
-            item.name = fixEncode(item.name);
+            // item.name = fixEncode(item.name);
             fixZipObj(item.content)
         } else {
-            item.name = fixEncode(item.name);
+            // item.name = fixEncode(item.name);
         }
     }
     return zipObj;
