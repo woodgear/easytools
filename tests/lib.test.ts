@@ -1,8 +1,8 @@
 import { ping } from "../src/lib"
-
+import { expect } from "chai"
 describe('lib test', () => {
-    test("ping test", async () => {
-        let res = await ping()
-        expect(res).toEqual("pong")
-    }, 1000 * 60 * 60)
+    it("ping test", async () => {
+        const res = await ping()
+        expect(res).equal("pong")
+    })
 })
