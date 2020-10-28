@@ -1,0 +1,26 @@
+
+{
+    "version": "0.1",
+    "dictionaryDefinitions": [
+        {
+        }
+    ],
+    "dictionaries": ["workspace"],
+    "ignorePaths": [
+        "package*.json",
+        ".gitattributes",
+        ".gitignore",
+        "cspell.json",
+        "**/{cspell.json,cSpell.json,.cspell.json}",
+        "**/package*.json",
+        "**/node_modules/**",
+        "**/.gitignore",
+        "**/tslint.json",
+        "**/dist/**",
+        "**/.vscode/**"
+    ],
+    "ignoreWords": [
+        "jszip",
+        "auxre"
+    ]
+}

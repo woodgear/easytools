@@ -1,0 +1,7 @@
+{
+    "tag":["ts","cli","test","jest","typescript"],
+    "kind":"single",
+    "template":{
+        "prefix":"_t_"
+    }
+}

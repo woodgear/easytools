@@ -1,3 +1,3 @@
-export async function ping():Promise<String> {
-    return "pong"
+export async function ping(): Promise<string> {
+  return 'pong';
 }
