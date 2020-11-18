@@ -9,5 +9,5 @@ export function transform(snippet: string): string {
         .map((l) => {
             return `"${replaceAll(l, '"', '\\"')}"`;
         })
-        .join('\n');
+        .join(',\n');
 }

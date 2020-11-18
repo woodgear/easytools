@@ -11,7 +11,7 @@ describe("test", () => {
 })
 `;
         const vscodeSnippet =
-            '""\n"describe(\\"test\\", () => {"\n"    it(\\"should ok\\", async () => {"\n"        "\n"    })"\n"})"\n""';
+            '"",\n"describe(\\"test\\", () => {",\n"    it(\\"should ok\\", async () => {",\n"        ",\n"    })",\n"})",\n""';
         const result = transform(snippet);
         assert.equal(result, vscodeSnippet);
     });
